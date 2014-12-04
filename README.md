@@ -3,6 +3,8 @@ leetcode
 
 My leetcode solutions.
 
+C++ 代码在文件夹*c++/*中，文件名为题目链接*后缀.cpp*，如：https://oj.leetcode.com/problems/lru-cache/ 对应的代码文件为*lru-cache.cpp*
+
 ### About This Repo
 
 * 所有代码均为原创，可随意转载、使用、修改，请标明出处。
