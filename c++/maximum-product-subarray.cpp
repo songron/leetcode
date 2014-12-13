@@ -35,3 +35,31 @@ public:
         
     }
 };
+class Solution {
+private:
+	int getmin(int a, int b, int c) {
+		int rs = a < b ? a : b;
+		return rs < c ? rs : c;
+	}
+	int getmax(int a, int b, int c) {
+		int rs = a < b ? b : a;
+		return rs < c ? c : rs;
+	}
+public:
+	int maxProduct(int A[], int n) {//要求O(n)时间， O(1)空间
+
+		if (n == 0) return 0;
+
+		//因为最优解只和前一个子问题有关， 因此完全没有必要存一个数组。
+		int DPmin = A[0], DPmax = A[0];
+		int rs = A[0];
+		for (int i = 1; i<n; ++i) {
+			int DPmintmp = getmin(A[i], A[i] * DPmax, A[i] * DPmin);
+			int DPmaxtmp = getmax(A[i], A[i] * DPmax, A[i] * DPmin);
+
+			DPmax = DPmaxtmp; DPmin = DPmintmp;
+			rs = max(rs, DPmax);
+		}
+		return rs;
+	}
+};
