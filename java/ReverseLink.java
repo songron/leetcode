@@ -19,12 +19,33 @@ public class Solution {
     }
 
     /**
+     * efficient solution
+     *
+     * tips:
+     * While you are traversing the list,
+     * change the current node's next pointer to point to its previous element
+     * @param head
+     * @return
+     */
+    public ListNode reverseList2(ListNode head) {
+        ListNode prev = null;
+        ListNode curr = head;
+        while (curr != null) {
+            ListNode nextTemp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = nextTemp;
+        }
+        return prev;
+    }
+
+    /**
      * inefficient solution
      *
      * @param head
      * @return
      */
-    public static ListNode reverseList2(ListNode head) {
+    public static ListNode reverseList3(ListNode head) {
         int size = 0;
         ListNode tempNode = head;
         //get the size of the list
