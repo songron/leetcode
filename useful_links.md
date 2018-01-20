@@ -37,6 +37,3 @@
 
 [five-essential-phone-screen-questions](https://sites.google.com/site/steveyegge2/five-essential-phone-screen-questions) [墙内](https://awk.so/@sites.google.com!/site/steveyegge2/five-essential-phone-screen-questions) 还是Steve Yegge，可以关注下他的[blog](http://steve-yegge.blogspot.com/) [墙内](https://awk.so/@sites.google.com!/site/steveyegge2/blog-rants)
 
-[分享一些书](http://pan.baidu.com/share/link?shareid=2002457576&uk=2568157534) 包括 Cracking-the-coding-interview, elements-of-programming-interviews, Thinking-in-C++, effective-C++, 设计模式， 编程珠玑，编程之美，等等。
-
-欢迎补充！
