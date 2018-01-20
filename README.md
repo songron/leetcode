@@ -13,7 +13,7 @@ C++ 代码在文件夹*c++/*中，文件名为题目链接*后缀.cpp*，如：h
 * 如果你有不一样的解法，欢迎交流。
 * 如果愿意贡献自己的leetcode-solution，可以Fork 后创建自己的文件夹，pull requests.
 * 有任何问题可以发Issues 交流，我会尽量认真回复。
-* 附个人[找工作总结](https://github.com/ghostrong/leetcode/blob/master/interview_summary.md)和一些[资源链接](https://github.com/ghostrong/leetcode/blob/master/useful_links.md)。
+* 一些[资源链接](https://github.com/ghostrong/leetcode/blob/master/useful_links.md)。
 
 
 ### TODO
