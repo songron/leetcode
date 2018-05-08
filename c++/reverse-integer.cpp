@@ -6,20 +6,14 @@ public:
         -123 -> -321
         100 -> 1
         */
-        
-        if (x < 0) {
-            return x == INT_MIN ? 0 : -reverse(-x);
-        }
+      
         
         int result = 0;
         
-        while (x > 0) {
-            if (result > INT_MAX / 10) {  // will overflow
-                return 0;
-            }
-            if (result == INT_MAX / 10 && (x % 10) > 7) {  // will overflow
-                return 0;
-            }
+        while (x ！＝ 0) {
+           if (result != 0 && INT_MAX / result < 10
+                   && INT_MAX / result > -10)
+               return 0;
             
             result = result * 10 + x % 10;
             x /= 10;
