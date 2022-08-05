@@ -28,6 +28,8 @@
 
 [hireintech](http://www.hiredintech.com/) 关于算法、系统设计的讲解，不算深入，但值得看看
 
+[InterviewBit]([http://oj.leetcode.com/](https://www.interviewbit.com/practice/): 面试准备
+
 
 ### 一些文章
 
