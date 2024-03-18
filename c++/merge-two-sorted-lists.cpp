@@ -8,28 +8,85 @@
  */
 class Solution {
 public:
-    ListNode *mergeTwoLists(ListNode *l1, ListNode *l2) {
-        // https://oj.leetcode.com/problems/merge-two-sorted-lists/
-        ListNode *dummy = new ListNode(0);
-        ListNode *tail = dummy;
-        
-        while (l1 && l2) {
-            if (l1->val < l2->val) {
-                tail->next = l1;
-                l1 = l1->next;
-            }
-            else {
-                tail->next = l2;
-                l2 = l2->next;
-            }
-            tail = tail->next;
-        }
-        
-        if (l1) tail->next = l1;
-        if (l2) tail->next = l2;
-        
-        l1 = dummy->next;
-        delete dummy;
-        return l1;
+   struct Node {
+    int data;
+    Node* next;
+
+    Node(int value) : data(value), next(nullptr) {}
+};
+
+Node* findMid(Node* head) {
+    if (head == nullptr || head->next == nullptr)
+        return head;
+
+    Node* slow = head;
+    Node* fast = head->next;
+
+    while (fast != nullptr && fast->next != nullptr) {
+        slow = slow->next;
+        fast = fast->next->next;
     }
+    return slow;
+}
+
+Node* merge(Node* left, Node* right) {
+    if (left == nullptr)
+        return right;
+    if (right == nullptr)
+        return left;
+
+    Node* ans = new Node(0); // dummy node
+    Node* temp = ans;
+
+    while (left != nullptr && right != nullptr) {
+        if (left->data < right->data) {
+            temp->next = left;
+            temp = left;
+            left = left->next;
+        } else {
+            temp->next = right;
+            temp = right;
+            right = right->next;
+        }
+    }
+
+    while (left != nullptr) {
+        temp->next = left;
+        temp = left;
+        left = left->next;
+    }
+
+    while (right != nullptr) {
+        temp->next = right;
+        temp = right;
+        right = right->next;
+    }
+
+    ans = ans->next;
+    return ans;
+}
+
+Node* mergeSort(Node* head) {
+    if (head == nullptr || head->next == nullptr) {
+        return head;
+    }
+
+    Node* mid = findMid(head);
+    Node* left = head;
+    Node* right = mid->next;
+    mid->next = nullptr;
+
+    left = mergeSort(left);
+    right = mergeSort(right);
+
+    return merge(left, right);
+}
+
+void printList(Node* head) {
+    while (head != nullptr) {
+        std::cout << head->data << " ";
+        head = head->next;
+    }
+    std::cout << std::endl;
+}
 };
