@@ -1,41 +1,31 @@
 class Solution {
 public:
-    vector<vector<int> > threeSum(vector<int> &num) {
-        /* https://oj.leetcode.com/problems/3sum/
-        Find all unique triplets in the array which gives the sum of zero.
-        */
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        vector<vector<int>> result;
+        const int n = nums.size();
+        sort(nums.begin(), nums.end());
         
-        vector<vector<int> > result;
-        const int n = num.size();
-        sort(num.begin(), num.end());
-        
-        for (int i = 0; i < n - 2; i++) {
-            if (i > 0 && num[i] == num[i-1]) continue;
+        for (int i = 0; i < n - 2; ++i) {
+            if (i > 0 && nums[i] == nums[i - 1]) continue; // Skip duplicate values
             
-            for (int j = i + 1, k = n - 1; j < k; ) {
-                if (j > i + 1 && num[j] == num[j-1]) {
-                    j++;
-                    continue;
+            int left = i + 1;
+            int right = n - 1;
+            int target = -nums[i]; // Convert the problem to finding two numbers that sum up to -nums[i]
+            
+            while (left < right) {
+                int sum = nums[left] + nums[right];
+                if (sum == target) {
+                    result.push_back({nums[i], nums[left], nums[right]});
+                    while (left < right && nums[left] == nums[left + 1]) left++; // Skip duplicate values
+                    while (left < right && nums[right] == nums[right - 1]) right--; // Skip duplicate values
+                    left++;
+                    right--;
+                } else if (sum < target) {
+                    left++;
+                } else {
+                    right--;
                 }
-                if (k < n - 1 && num[k] == num[k+1]) {
-                    k--;
-                    continue;
-                }
-                
-                int sum = num[i] + num[j] + num[k];
-                if (sum == 0) {
-                    vector<int> answer({num[i], num[j], num[k]});
-                    result.push_back(answer);
-                    j++;
-                    k--;
-                }
-                else if (sum < 0) {
-                    j++;
-                }
-                else {
-                    k--;
-                }
-            } 
+            }
         }
         
         return result;
